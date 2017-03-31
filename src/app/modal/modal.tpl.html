@@ -1,0 +1,110 @@
+<div class="bg-iyt-dark-gray white" ng-if="!$ctrl.thankYou">
+  <div class="center w-60-m w-40-l pa4">
+    <div class="tc mb2">
+      <div class="f2 iyt-lighter-blue ttu mb3">Get Connected</div>
+      <div class="f5 lh-copy measure-narrow center">Start your freshman year off right! Connect with an upperclassman at your college.</div>
+    </div>
+
+    <form name="$ctrl.contactForm">
+      <div class="f4 mt4 mb3">What are you interested in?</div>
+      <label class="db mt3">
+        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Friends']">
+        <span>Friends</span>
+      </label>
+      <label class="db mt3">
+        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Play']">
+        <span>Play</span>
+      </label>
+      <label class="db mt3">
+        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Cheats']">
+        <span>Cheats</span>
+      </label>
+      <label class="db mt3">
+        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Status']">
+        <span>Status</span>
+      </label>
+
+      <div class="f4 mt4">Name</div>
+      <input type="text"
+             class="big-input"
+             name="name"
+             ng-model="$ctrl.form.name"
+             ng-class="{'input-error-outline': ($ctrl.contactForm.name | showErrors)}"
+             required/>
+      <div ng-messages="$ctrl.contactForm.name.$error" class="input-error-message" role="alert" ng-if="($ctrl.contactForm.name | showErrors)">
+        <div class="help-block" ng-message="required" translate>Please enter your name</div>
+      </div>
+
+      <div class="f4 mt4 mb2">How can we contact you?</div>
+      <label class="mr3 big-selector">
+        <input type="radio" class="mr2 big-selector" ng-model="$ctrl.form.contactInfoType" value="phone">
+        <span>Phone</span>
+      </label>
+      <label class="">
+        <input type="radio" class="mr2 big-selector" ng-model="$ctrl.form.contactInfoType" value="email">
+        <span>Email</span>
+      </label>
+
+      <input ng-if="$ctrl.form.contactInfoType === 'phone'" type="text"
+             class="big-input"
+             ng-model="$ctrl.form.phone"
+             name="phone"
+             ng-class="{'input-error-outline': ($ctrl.contactForm.phone | showErrors)}"
+             required />
+      <div ng-messages="$ctrl.contactForm.phone.$error" class="input-error-message" role="alert" ng-if="($ctrl.contactForm.phone | showErrors)">
+        <div class="help-block" ng-message="required" translate>Please enter your phone number</div>
+        <div class="help-block" ng-message="phone" translate>Please make sure you entered your phone number correctly</div>
+      </div>
+
+      <input ng-if="$ctrl.form.contactInfoType === 'email'" type="email"
+             class="big-input"
+             ng-model="$ctrl.form.email"
+             name="email"
+             ng-class="{'input-error-outline': ($ctrl.contactForm.email | showErrors)}"
+             required />
+      <div ng-messages="$ctrl.contactForm.email.$error" class="input-error-message" role="alert" ng-if="($ctrl.contactForm.email | showErrors)">
+        <div class="help-block" ng-message="required" translate>Please enter your email</div>
+        <div class="help-block" ng-message="email" translate>Please make sure you entered your email correctly</div>
+      </div>
+
+      <div class="f4 mt4">What college are you attending?</div>
+      <autocomplete ng-model="$ctrl.form.campus"
+                    data="$ctrl.schools"
+                    on-type="$ctrl.form.campus === 'Still deciding' ? $ctrl.form.undecided = true : $ctrl.form.undecided = false"
+                    attr-placeholder=""
+                    attr-input-class="big-input"></autocomplete>
+      <label class="db mt3">
+        <input type="checkbox"
+               class="mr2  big-selector"
+               ng-model="$ctrl.form.undecided"
+               ng-change="$ctrl.form.undecided ? $ctrl.form.campus = 'Still deciding' : $ctrl.form.campus = ''">
+        <span>I'm still deciding</span>
+      </label>
+
+      <div ng-if="$ctrl.contactForm.$submitted && !$ctrl.contactForm.$valid" class="input-error-message mt3">
+        Please fill in all the fields
+      </div>
+      <div ng-if="$ctrl.error" class="input-error-message mt3">
+        There was an error submitting your info. Please check your info and try again.
+      </div>
+
+      <a href="javascript:;" class="action-btn" ng-click="$ctrl.submit()">
+        Submit
+      </a>
+      <a href="javascript:;" class="action-btn bg-iyt-gray" ng-click="$ctrl.dismissModal()">
+        Go Back
+      </a>
+    </form>
+  </div>
+</div>
+<div class="bg-iyt-lighter-blue flex items-center justify-center" ng-if="$ctrl.thankYou">
+  <div class="w-60-m w-40-l pa5 tc">
+    <img src="../../assets/icons/star.svg" class="db center w4">
+    <div class="f3 ttu white mt4">Congrats!</div>
+    <div class="f3 ttu white">You’ve advanced to the next level.</div>
+    <div class="f5 lh-copy measure-narrow center mt2">An upperclassman from Cru will contact you soon! </div>
+    <a href="javascript:;" class="action-btn" ng-click="$ctrl.closeModal()">
+      Go Back
+    </a>
+  </div>
+</div>

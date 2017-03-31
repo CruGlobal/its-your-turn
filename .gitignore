@@ -1,0 +1,26 @@
+node_modules
+dist
+.idea
+.DS_STORE
+coverage
+
+*.log
+*.back.*
+.sass-cache
+
+# Rails / Ruby
+/.bundle
+vendor/ruby
+/tmp
+/spec/tmp
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+
+# IntelliJ
+*.iml
+.idea/
+
+# Environment
+.env.*

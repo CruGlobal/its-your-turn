@@ -1,0 +1,100 @@
+@import "~tachyons-sass/tachyons";
+@import "../colors";
+@import "./autocomplete";
+
+modal{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  > div {
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+body.modal-open{
+  overflow-y: hidden;
+}
+
+.big-input{
+  @extend .w-100;
+  @extend .mt3;
+  @extend .input-reset;
+  @extend .bw0;
+  @extend .pa2;
+  @extend .br2;
+}
+
+input[type=radio], input[type=checkbox]{
+  &.big-selector{
+    @extend .visually-hidden;
+    + span:before{
+      content: '';
+      @extend .dib;
+      @extend .w1;
+      @extend .h1;
+      @extend .ba;
+      @extend .bw2;
+      @extend .b--iyt-lighter-blue;
+      @extend .mr2;
+      border: 0.125em solid color(dark-gray);
+      box-shadow: 0 0 0 0.15em color(lighter-blue);
+      vertical-align: -0.25em;
+      transition: 0.5s ease all;
+    }
+    &:focus + span:before{
+      box-shadow: 0 0 0 0.15em $gold;
+    }
+    &:checked + span:before{
+      @extend .bg-iyt-lighter-blue;
+    }
+  }
+}
+
+input[type=radio]{
+  &.big-selector {
+    + span:before {
+      @extend .br-100;
+    }
+  }
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.input-error-outline{
+  box-shadow: 0 0 .2em 0.1em $light-yellow;
+}
+
+.input-error-message{
+  color: $light-yellow;
+  @extend .pt2;
+}
+
+.autocomplete input{
+  font-size: 16px;
+  padding: 8px;
+}
+
+.autocomplete ul{
+  color: black;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  max-height: 175px;
+}
+
+.autocomplete li{
+  cursor: pointer;
+}

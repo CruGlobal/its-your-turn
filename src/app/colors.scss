@@ -1,0 +1,28 @@
+$colors: (
+  "lighter-blue": #32c3d7,
+  "blue": #2cbbd1,
+  "light-gray": #f7f7f7,
+  "gray": #5a5a5a,
+  "dark-gray": #5a5a5a
+);
+
+@function color($name) {
+  @if map-has-key($colors, $name) {
+    @return map-get($colors, $name);
+  }
+
+  @warn "Unknown `#{$name}` in $colors.";
+  @return null;
+}
+
+@each $name, $color in $colors{
+  .iyt-#{$name}{
+    color: $color;
+  }
+  .bg-iyt-#{$name}{
+    background-color: $color;
+  }
+  .b--iyt-#{$name}{
+    border-color: $color;
+  }
+}

@@ -1,0 +1,11 @@
+language: node_js
+node_js: "7"
+script:
+  - yarn run test -- --single-run
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && ([ "$TRAVIS_BRANCH" == "master" ] || [ "$TRAVIS_BRANCH" == "dev" ]); then yarn run build; fi
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+cache:
+  yarn: true
+  directories:
+  - node_modules
