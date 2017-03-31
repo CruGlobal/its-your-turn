@@ -1,10 +1,10 @@
 <div class="banner relative">
   <div class="background-scene white">
-    <div class="dn absolute top-0 left-0 right-0 h-100 flex-ns flex-wrap justify-between content-between">
+    <div class="dn absolute top-0 left-0 right-0 h-100 flex-l flex-wrap justify-between content-between">
       <div class="w-50 pa4">
-        <a href="#status" class="dib link white">
-          <img src="../assets/icons/icon-status-white.svg">
-          <div class="f4 ttu tc center pt1">Level<br>up</div>
+        <a href="#play" class="dib link white">
+          <img src="../assets/icons/icon-play-white.svg">
+          <div class="f4 ttu tc center pb1">Get<br>Started</div>
         </a>
       </div>
       <div class="w-50 pa4 tr">
@@ -14,62 +14,70 @@
         </a>
       </div>
       <div class="w-50 pa4">
-        <a href="#play" class="dib link white">
-          <div class="f4 ttu tc center pb1">Get<br>Started</div>
-          <img src="../assets/icons/icon-play-white.svg">
-        </a>
-      </div>
-      <div class="w-50 pa4 tr">
         <a href="#friends" class="dib link white">
           <div class="f4 ttu tc center pb1">Meet New<br>Friends</div>
           <img src="../assets/icons/icon-friends-white.svg">
         </a>
       </div>
+      <div class="w-50 pa4 tr">
+        <a href="#status" class="dib link white">
+          <div class="f4 ttu tc center pt1">Level<br>up</div>
+          <img src="../assets/icons/icon-status-white.svg">
+        </a>
+      </div>
     </div>
-    <div class="f2 ttu tc pt3 pt4-ns">It's your turn!</div>
-    <div class="f5 tc pt2">Cru wants to connect with you in college.</div>
+    <div class="f2 ttu tc pt3 pt5-m pt4-l">It's your turn!</div>
+    <div class="f5 tc pt2">Boost your college experience with Cru.</div>
   </div>
-  <!--<div class="absolute top-0 left-0 right-0 bottom-0 h-100">&lt;!&ndash; style="background-color: rgba(14,116,133,0.588);>&ndash;&gt;-->
-  <!--<img src="../assets/goggles.png" class="min-h-100" style="max-height: 100%">-->
-  <!--</div>-->
 </div>
 
+<img src="../assets/hud-left-top.png" class="banner-hud-metrics-left">
+<img src="../assets/hud-right.svg" class="banner-hud-metrics-right">
 
-<div class="cf dn-ns">
-  <a href="#play" class="fl-ns w-100 db w-25-ns pa3 tc link bg-iyt-blue white f4 bg-animate hover-bg-gold hover-black ttu">Play</a>
-  <a href="#cheats" class="fl-ns w-100 db w-25-ns pa3 tc link bg-iyt-blue white f4 bg-animate hover-bg-gold hover-black ttu bt bw1 b--white">Cheats</a>
-  <a href="#friends" class="fl-ns w-100 db w-25-ns pa3 tc link bg-iyt-blue white f4 bg-animate hover-bg-gold hover-black ttu bt bw1 b--white">Friends</a>
-  <a href="#status" class="fl-ns w-100 db w-25-ns pa3 tc link bg-iyt-blue white f4 bg-animate hover-bg-gold hover-black ttu bt bw1 b--white">Status</a>
+
+<div class="flex-m items-stretch dn-l">
+  <a href="#play" class="flex justify-center items-center w-100 db w-25-ns pa3 tc link bg-iyt-blue white f4 bg-animate hover-bg-gold hover-black ttu">
+    Adventures
+  </a>
+  <a href="#cheats" class="flex justify-center items-center w-100 db w-25-ns pa3 tc link bg-iyt-blue white f4 bg-animate hover-bg-gold hover-black ttu bt bt-0-ns bl-m bw1 b--white">
+    Campus cheats
+  </a>
+  <a href="#friends" class="flex justify-center items-center w-100 db w-25-ns pa3 tc link bg-iyt-blue white f4 bg-animate hover-bg-gold hover-black ttu bt bt-0-ns bl-m bw1 b--white">
+    Meet new friends
+  </a>
+  <a href="#status" class="flex justify-center items-center w-100 db w-25-ns pa3 tc link bg-iyt-blue white f4 bg-animate hover-bg-gold hover-black ttu bt bt-0-ns bl-m bw1 b--white">
+    Learn more about Cru
+  </a>
 </div>
 
-<content-panel id="play" open-modal="$ctrl.openModal()" bg-class="white relative hud-spinning" connected="$ctrl.connected">
+<content-panel id="play" open-modal="$ctrl.openModal(1)" bg-class="white relative hud-spinning" connected="$ctrl.connected">
   <icon>
     <img src="../assets/icons/icon-play.svg">
   </icon>
   <heading class="ttu">Your adventure begins here</heading>
   <content class="db mw6 center">
     <div class='embed-container'>
-      <iframe ng-src="http://www.youtube.com/embed/e54zdwhGNlY?color=white&iv_load_policy=3&rel=0&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/e54zdwhGNlY?color=white&iv_load_policy=3&rel=0&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
     </div>
   </content>
-  <action-text>Connect with an <span class="ttu">insider</span> from Cru and enhance your adventure!</action-text>
+  <action-text>Connect with an <span class="ttu">insider</span> from Cru and learn how to enhance your adventure!</action-text>
   <action-btn-text>Get Started</action-btn-text>
 </content-panel>
 
-<content-panel id="cheats" open-modal="$ctrl.openModal()" connected="$ctrl.connected">
+<content-panel id="cheats" open-modal="$ctrl.openModal(2)" connected="$ctrl.connected">
   <icon><img src="../assets/icons/icon-cheats.svg"></icon>
   <heading>Cheats to conquering your first year.</heading>
   <content>
     <div class="cf">
       <div class='fl-l w-third-l tc pa3'>
         <img src="../assets/icons/cheats/icon-drop-the-high-school-gear.svg">
-        <div class="f4 mt2">Drop the high school gear.</div>
-        <div class="center measure mt3 lh-copy">Wearing your high school swag might be the brightest, flashiest arrow you can point at yourself as a freshman. It says to your classmates, basically, “I’m new.”</div>
+        <div class="f4 mt2">Drop the high school gear</div>
+        <div class="center measure mt3 lh-copy">Wearing your high school swag might be the brightest, flashiest arrow you can point at yourself as a freshman. It says to your classmates, basically, “I’m a noob.”</div>
       </div>
       <div class='fl-l w-third-l tc pa3'>
         <img src="../assets/icons/cheats/icon-get-connected.svg">
         <div class="f4 mt2">Get connected</div>
-        <div class="center measure mt3 lh-copy">Friendships are founded on common interests and the best ones are often centered around Christ. It might feel uncomfortable when you don’t know lots of people there, but don’t sweat it. This is normal!</div>
+        <div class="center measure mt3 lh-copy">Friendships are founded on common interests and the best ones are often centered around Christ. It’s normal to feel uncomfortable when you don’t know a lot of people but attending campus events is the best way to meet them.</div>
       </div>
       <div class='fl-l w-third-l tc pa3'>
         <img src="../assets/icons/cheats/icon-leave-your-door-open.svg">
@@ -82,19 +90,24 @@
   <action-btn-text>Get Campus Cheats</action-btn-text>
 </content-panel>
 
-<content-panel id="friends" open-modal="$ctrl.openModal()" bg-class="bg-black white" connected="$ctrl.connected">
-  <icon><img src="../assets/icons/icon-friends.svg"></icon>
-  <heading>A Multiplayer Experience.</heading>
+<content-panel id="friends" open-modal="$ctrl.openModal(3)" bg-class="white relative overflow-hidden friends-background" connected="$ctrl.connected">
+  <icon class="relative z-2"><img src="../assets/icons/icon-friends.svg"></icon>
+  <heading class="relative z-2">A Multiplayer Experience.</heading>
   <content>
-    <div class="f5 measure-wide lh-copy tc center">
-      Christian fellowship is vital to your survival in college. Being around like-minded people is essential to having a great college experience. Would you like to be connected to an upperclassman on your campus?
+    <div class="f5 measure-wide lh-copy tc center relative z-2">
+      Christian community is essential for having a great college experience. We’re here to help connect you with like-minded people on your campus.
     </div>
+
+    <div class='embed-container absolute top-0 left-0 right-0 bottom-0 dimmed dn db-ns'>
+      <iframe src="https://player.vimeo.com/video/209974335?background=1&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+
   </content>
-  <action-text>Connect with an <span class="ttu">insider</span> from Cru and meet new friends on campus!</action-text>
+  <action-text class="relative z-2">Connect with an <span class="ttu">insider</span> from Cru and meet new friends at college!</action-text>
   <action-btn-text>Meet new friends</action-btn-text>
 </content-panel>
 
-<content-panel id="status" open-modal="$ctrl.openModal()" bg-class="hud-metrics" connected="$ctrl.connected">
+<content-panel id="status" open-modal="$ctrl.openModal(4)" bg-class="hud-metrics bg-white" connected="$ctrl.connected">
   <heading class="ttu">Level Up with Cru</heading>
   <icon><img src="../assets/icons/icon-status.svg"></icon>
   <content>
@@ -102,24 +115,23 @@
       Cru is a caring community, passionate about connecting incoming college students with people, resources and Jesus Christ.
     </div>
     <div class="cf pt4">
-      <div class="fl-ns w-third-ns tc ph3 pv3 pv0-ns">
+      <div class="fl-l w-third-l tc ph3 pv3 pv0-l mw6 center">
         <div class='embed-container'>
-          <iframe ng-src="http://www.youtube.com/embed/X9P2wuO1n3M?color=white&iv_load_policy=3&rel=0&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/X9P2wuO1n3M?color=white&iv_load_policy=3&rel=0&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="f3 mt2 measure-narrow lh-copy center">You were meant for this&hellip;</div>
       </div>
-      <div class="fl-ns w-third-ns tc ph3 pv3 pv0-ns">
+      <div class="fl-l w-third-l tc ph3 pv3 pv0-ns mw6 center">
         <div class='embed-container'>
-          <iframe ng-src="http://www.youtube.com/embed/4M13yv8h_-g?color=white&iv_load_policy=3&rel=0&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/4M13yv8h_-g?color=white&iv_load_policy=3&rel=0&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="f3 mt2 measure-narrow lh-copy center">You decide where&hellip;</div>
       </div>
-      <div class="fl-ns w-third-ns tc ph3 pv3 pv0-ns">
+      <div class="fl-l w-third-l tc ph3 pv3 pv0-l mw6 center">
         <div class='embed-container'>
-          <iframe ng-src="http://www.youtube.com/embed/VxNWnuyUZXA?color=white&iv_load_policy=3&rel=0&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/VxNWnuyUZXA?color=white&iv_load_policy=3&rel=0&modestbranding=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="f3 mt2 measure-narrow lh-copy center">Former Cru Insiders: Rhett & Link</div>
-        <!--<div class="measure-narrow mt3 lh-copy center">Rhett & Link bring the kind of fun and energy that Cru is known for. They emceed the regional winter conference of Cru in 2006 (above) and the weekly Cru event at NC State as students. Now they <a href="http://www.rhettandlink.com/" class="link" target="_blank">hang with Jimmy Fallon</a> and have <a href="https://www.youtube.com/user/rhettandlink2" class="link" target="_blank">more than 12 million followers on YouTube</a>.</div>-->
       </div>
     </div>
   </content>
@@ -128,16 +140,14 @@
 </content-panel>
 
 <content-panel hide-actions="true" bg-class="bg-iyt-light-gray pb5">
-  <!--<heading>About Us</heading>-->
   <content>
-    <img src="../assets/cru-logo.svg" class="db mb5 mw4 center">
-    <!--<div class="measure-wide center lh-copy">-->
-    <!--Cru is a caring community, passionate about connecting people to Jesus Christ. For over 60 years, we have been a ministry on college campuses around the world helping students come to know Jesus, grow in their faith, and share God’s love with others.-->
-    <!--</div>-->
+    <a href="http://www.cru.org" target="_blank">
+      <img src="../assets/cru-logo.svg" class="db mb5 mw4 center">
+    </a>
     <div class="tc mt4">
       <small class="center">©2017 Cru. All Rights Reserved.</small>
     </div>
   </content>
 </content-panel>
 
-<modal ng-if="$ctrl.modalOpen" close-modal="$ctrl.closeModal()" dismiss-modal="$ctrl.dismissModal()"></modal>
+<modal ng-if="$ctrl.modalOpen" close-modal="$ctrl.closeModal()" dismiss-modal="$ctrl.dismissModal()" form-id="$ctrl.formId"></modal>

@@ -9,6 +9,7 @@ modal{
   left: 0;
   right: 0;
   overflow-y: auto;
+  z-index: 3;
   > div {
     min-width: 100%;
     min-height: 100%;

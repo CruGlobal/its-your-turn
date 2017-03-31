@@ -16,7 +16,8 @@ class MainController{
     this.$rootScope = $rootScope;
   }
 
-  openModal(){
+  openModal(id){
+    this.formId = id;
     this.$rootScope.modalOpen = this.modalOpen = true;
   }
 

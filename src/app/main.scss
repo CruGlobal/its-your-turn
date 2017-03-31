@@ -1,9 +1,6 @@
 @import "~tachyons-sass/tachyons";
 @import "~tachyons-flexbox";
-@import "parallax";
 @import "colors";
-
-//@include parallax-init(1, "body", true);
 
 body{
   overflow-x: hidden;
@@ -22,22 +19,57 @@ body{
 }
 
 .background-scene{
-  //position: absolute;
   height: 100%;
-  //top: -21em;
-  //left: -0.4em;
-  //right: 0;
-  background: url(../assets/goggles.png), url(../assets/college-panorama.jpg);
+  background: url(../assets/goggles.svg), url(../assets/college-panorama.jpg);
   background-size:     cover;
   background-repeat:   no-repeat;
-  background-position: center center;
-  //@include parallax(-1);
+  background-position: bottom;
+
+  animation: animatedBackground 15s ease-in-out infinite alternate;
 }
 
-.goggles{
-  top: 0;
-  @extend .p-center;
-  //@include parallax(-.5);
+@keyframes animatedBackground {
+  from { background-position: bottom, 0px center; }
+  to { background-position: bottom, -600px center, ; }
+}
+
+//@media #{$breakpoint-large} {
+//  .background-scene {
+//    background-position: bottom;
+//  }
+//}
+
+.banner-hud-metrics-left{
+  position: absolute;
+  top: 10em;
+  left: 16%;
+  display: none;
+}
+
+.banner-hud-metrics-right{
+  position: absolute;
+  top: 10em;
+  right: 16%;
+  display: none;
+}
+
+@media #{$breakpoint-large} {
+  .banner-hud-metrics-left, .banner-hud-metrics-right {
+    display: block;
+  }
+}
+
+.friends-background{
+  background: url(../assets/friends-dark.jpg), black;
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: 69%;
+}
+
+@media #{$breakpoint-not-small} {
+  .friends-background {
+    background: black;
+  }
 }
 
 .hud-spinning {
@@ -64,13 +96,6 @@ body{
   }
 }
 
-.p-center{
-  position: absolute;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
 .action-btn{
   @extend .mt3;
   @extend .db;
@@ -90,65 +115,37 @@ body{
 
 .action-btn.action-btn-disabled{
   @extend .bg-iyt-gray;
-  @extend .black-90;
-  @extend .hover-black-90;
+  @extend .hover-white;
   cursor: default;
 }
 
+.z--1{
+  z-index: -1;
+}
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-///* Parallax base styles
-//--------------------------------------------- */
-//
-//.parallax {
-//  height: 500px; /* fallback for older browsers */
-//  height: 100vh;
-//  overflow-x: hidden;
-//  overflow-y: auto;
-//  -webkit-perspective: 300px;
-//  perspective: 300px;
-//  -webkit-perspective-origin-x: 100%;
-//  perspective-origin-x: 100%;
-//}
-//
-//.parallax__group {
-//  position: relative;
-//  height: 500px; /* fallback for older browsers */
-//  height: 100vh;
-//  -webkit-transform-style: preserve-3d;
-//  transform-style: preserve-3d;
-//}
-//
-//.parallax__layer {
-//  position: absolute;
-//  top: 0;
-//  left: 0;
-//  right: 0;
-//  bottom: 0;
-//  -webkit-transform-origin-x: 100%;
-//  transform-origin-x: 100%;
-//}
-//
-//.parallax__layer--fore {
-//  -webkit-transform: translateZ(90px) scale(.7);
-//  transform: translateZ(90px) scale(.7);
-//  z-index: 1;
-//}
-//
-//.parallax__layer--base {
-//  -webkit-transform: translateZ(0);
-//  transform: translateZ(0);
-//  z-index: 4;
-//}
-//
-//.parallax__layer--back {
-//  -webkit-transform: translateZ(-300px) scale(2);
-//  transform: translateZ(-300px) scale(2);
-//  z-index: 3;
-//}
-//
-//.parallax__layer--deep {
-//  -webkit-transform: translateZ(-600px) scale(3);
-//  transform: translateZ(-600px) scale(3);
-//  z-index: 2;
-//}
+.embed-container {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;
+  &.absolute{
+    position: absolute;
+  }
+}
+.embed-container iframe, .embed-container object, .embed-container embed {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.dimmed {
+  position: relative;
+}
+
+.dimmed:after {
+  content: " ";
+  z-index: 1;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 -20px 10px -20px #000000;
+}

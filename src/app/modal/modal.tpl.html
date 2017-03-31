@@ -2,29 +2,32 @@
   <div class="center w-60-m w-40-l pa4">
     <div class="tc mb2">
       <div class="f2 iyt-lighter-blue ttu mb3">Get Connected</div>
-      <div class="f5 lh-copy measure-narrow center">Start your freshman year off right! Connect with an upperclassman at your college.</div>
+      <div class="f5 lh-copy measure-narrow center">Start your freshman year off right!</div>
     </div>
+    <a href="javascript:;" ng-click="$ctrl.dismissModal()" class="absolute top-2 right-2">
+      <img src="../../assets/icons/icon-close.svg" class="w2">
+    </a>
 
     <form name="$ctrl.contactForm">
       <div class="f4 mt4 mb3">What are you interested in?</div>
       <label class="db mt3">
-        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Friends']">
-        <span>Friends</span>
+        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Adventures']">
+        <span>Adventures</span>
       </label>
       <label class="db mt3">
-        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Play']">
-        <span>Play</span>
+        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Campus cheats']">
+        <span>Campus cheats</span>
       </label>
       <label class="db mt3">
-        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Cheats']">
-        <span>Cheats</span>
+        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Meeting new friends']">
+        <span>Meeting new friends</span>
       </label>
       <label class="db mt3">
-        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Status']">
-        <span>Status</span>
+        <input type="checkbox" class="mr2 f5 big-selector" ng-model="$ctrl.form.interests['Learn more about Cru']">
+        <span>Learn more about Cru</span>
       </label>
 
-      <div class="f4 mt4">Name</div>
+      <div class="f4 mt4">Full Name</div>
       <input type="text"
              class="big-input"
              name="name"

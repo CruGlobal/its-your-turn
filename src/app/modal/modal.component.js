@@ -15,7 +15,8 @@ let componentName = 'modal';
 class ModalController{
 
   /* @ngInject */
-  constructor($http, $log){
+  constructor($window, $http, $log){
+    this.$window = $window;
     this.$http = $http;
     this.$log = $log;
     this.schools = schools;
@@ -53,7 +54,7 @@ class ModalController{
       }
     };
 
-    const currentIds = ids.staging;
+    const currentIds = ids.production;
 
     const interests = keys(pickBy(this.form.interests, i => i === true));
 
@@ -119,6 +120,7 @@ class ModalController{
     this.$http.post(currentIds.uri, data)
       .then(() => {
         this.thankYou = true;
+        this.$window._satellite.track('aa-form-submission-' + this.formId);
       })
       .catch(error => {
         this.$log.error('Error submitting contact info', error);
@@ -138,10 +140,7 @@ export default angular
     controller: ModalController,
     templateUrl: template,
     bindings: {
-      heading: '<',
-      type: '<',
-      youtubeId: '<',
-      even: '<',
+      formId: '<',
       closeModal: '&',
       dismissModal: '&'
     }
