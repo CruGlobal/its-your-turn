@@ -80,8 +80,18 @@ module.exports = {
           ]
       },
       {
-        test: /\.(json|svg|woff|ttf|png|ico|jpg|gif|eot)/,
+        test: /\.(json|woff|ttf|eot|ico)/,
         use: ['file-loader']
+      },
+      {
+        test: /\.(svg|png|jpe?g|gif)/,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {}
+          }
+        ]
       }
     ]
   },
